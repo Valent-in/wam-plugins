@@ -1,22 +1,24 @@
 [
-	{"name": "OwlDirty"},
-	{"name": "greyhole"},
-	{"name": "kbverb"},
-	{"name": "OverdriveRix"},
-	{"name": "OwlShimmer"},
-	{"name": "sweetWah"},
-	{"name": "ThruZeroFlanger"},
-	{"name": "WeirdPhaser"},
-	{"name": "BigMuff"},
-	{"name": "DualPitchShifter"},
-	{"name": "GuitarAmpSim60s"},
-	{"name": "OscTube"},
-	{"name": "pingpongdelay"},
-	{"name": "SmoothDelay"},
-	{"name": "StereoEnhancer"},
-	{"name": "StereoFreqShifter"},
-	{"name": "TS9_Overdrive"},
+	{"name":"greyhole","title":"Grey Hole"},
+	{"name":"kbverb","title":"KBVerb"},
+	{"name":"OwlShimmer","title":"OWLShimmer"},
+	{"name":"OwlDirty","title":"OwlDirty"},
 
-	{"name": "tinySynth", "type": "instrument"},
-	{"name": "faust-clarinet", "type": "instrument"}
+	{"name":"BigMuff","title":"Big Muff"},
+	{"name":"OscTube","title":"OSCTube"},
+	{"name":"OverdriveRix","title":"Overdriverix"},
+	{"name":"TS9_Overdrive","title":"TS9 Overdrive"},
+	{"name":"GuitarAmpSim60s","title":"Vox Amp 30"},
+
+	{"name":"pingpongdelay","title":"PingPongDelay"},
+	{"name":"SmoothDelay","title":"SmoothDelay"},
+	{"name":"StereoEnhancer","title":"Stereo Enhancer"},
+	{"name":"StereoFreqShifter","title":"StereoFreqShifter"},
+	{"name":"sweetWah","title":"SweetWah"},
+	{"name":"ThruZeroFlanger","title":"ThruZeroFlanger"},
+	{"name":"WeirdPhaser","title":"WeirdPhaser"},
+	{"name":"DualPitchShifter","title":"DualPitchShifter"},
+
+	{"name":"faust-clarinet","title":"Clarinet (Faust)","type":"instrument"},
+	{"name":"tinySynth","title":"TinySynth","type":"instrument"}
 ]
