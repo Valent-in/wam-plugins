@@ -1,0 +1,20 @@
+{
+    "identifier": "fr.grame.faust.clarinetmidi",
+    "name": "clarinetMIDI",
+    "vendor": "Faust User",
+    "description": "Simple MIDI-controllable clarinet physical model with physical parameters.",
+    "version": "1.0.0",
+    "apiVersion": "2.0.0",
+    "keywords": [],
+    "isInstrument": true,
+    "website": "",
+    "hasAudioInput": false,
+    "hasAudioOutput": true,
+    "hasMidiInput": true,
+    "hasMidiOutput": false,
+    "faustMeta": {
+        "poly": true,
+        "fft": false,
+        "effect": null
+    }
+}

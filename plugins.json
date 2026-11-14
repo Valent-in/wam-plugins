@@ -1,0 +1,22 @@
+[
+	{"name": "OwlDirty"},
+	{"name": "greyhole"},
+	{"name": "kbverb"},
+	{"name": "OverdriveRix"},
+	{"name": "OwlShimmer"},
+	{"name": "sweetWah"},
+	{"name": "ThruZeroFlanger"},
+	{"name": "WeirdPhaser"},
+	{"name": "BigMuff"},
+	{"name": "DualPitchShifter"},
+	{"name": "GuitarAmpSim60s"},
+	{"name": "OscTube"},
+	{"name": "pingpongdelay"},
+	{"name": "SmoothDelay"},
+	{"name": "StereoEnhancer"},
+	{"name": "StereoFreqShifter"},
+	{"name": "TS9_Overdrive"},
+
+	{"name": "tinySynth", "type": "instrument"},
+	{"name": "faust-clarinet", "type": "instrument"}
+]
