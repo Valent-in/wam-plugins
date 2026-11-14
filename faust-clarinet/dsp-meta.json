@@ -178,7 +178,7 @@
     "ui": [
         {
             "type": "vgroup",
-            "label": "clarinet",
+            "label": "Clarinet",
             "items": [
                 {
                     "type": "hgroup",
@@ -300,7 +300,7 @@
                 },
                 {
                     "type": "hgroup",
-                    "label": "otherParams",
+                    "label": "Clarinet Params",
                     "meta": [
                         {
                             "1": ""

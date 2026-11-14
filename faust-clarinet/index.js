@@ -8,10 +8,10 @@
  * @typedef {import("./faustwasm").FaustUIItem} IFaustUIItem
  */
 
-import { WebAudioModule } from './sdk/index.js';
-import { CompositeAudioNode, ParamMgrFactory } from './sdk-parammgr/index.js';
+import { WebAudioModule } from '../utils/sdk/src/index.js';
+import { CompositeAudioNode, ParamMgrFactory } from '../utils/sdk-parammgr/src/index.js';
 import { FaustMonoDspGenerator, FaustPolyDspGenerator } from "./faustwasm/index.js";
-import createElement from './gui.js';
+import createElement from  "./Gui/index.js";
 
 class FaustCompositeAudioNode extends CompositeAudioNode {
 	/**
