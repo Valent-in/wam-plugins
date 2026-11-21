@@ -1,26 +1,62 @@
 // https://github.com/g200kg/webaudio-controls/blob/master/webaudio-controls.js
-import '../utils/webaudio-controls.js';
 
 // This works when youuse a bundler such as rollup
 // If you do no wan to use a bundler, then  look at other examples
 // that build in pure JS the syles and html template directly
 // in the code...
-let style = `:host {
+let style = `
+:host {
 	display: inline-block;
-	background-color: #acf;
-	box-shadow: 4px 5px 6px rgba(0, 0, 0, 0.7), inset -2px -2px 5px 0px rgba(0, 0, 0, 0.2), inset 3px 1px 1px 4px rgba(255, 255, 255, 0.2), 1px 0px 1px 0px rgba(0, 0, 0, 0.9), 0 2px 1px 0 rgba(0, 0, 0, 0.9), 1px 1px 1px 0px rgba(0, 0, 0, 0.9);
-	border-bottom-left-radius: 8px;
-	border-bottom-right-radius: 8px;
+	background-color: #ccc;
 	position: relative;
-	padding: 5px;
-  }
-  #top {
-	padding-bottom: .3em;
-	text-align: right;
-  }
-  `;
-let template = `<div id="top" style="padding:10px">
-No GUI
+}
+
+#top {
+	padding: 2px;
+	color: #111;
+	border-top: 2px solid #fff;
+	border-left: 2px solid #fff;
+	border-bottom: 2px solid #999;
+	border-right: 2px solid #999;
+}
+
+.title {
+	padding: 2px 6px;
+	background-color: darkblue;
+	color: white;
+}
+
+.block {
+	margin: 8px 6px;
+}
+
+select {
+	font-size: 1rem;
+	min-width: 2.5rem;
+}
+`;
+
+let template = `
+<div id="top">
+	<div class="title">TinySynth</div>
+
+	<div class="block">
+		<span>Program</span>
+		<select id="program"></select>
+	</div>
+
+	<div class="block">
+		<span>Volume</span>
+		<input type="range" min="0" max="1" step="0.01" id="volume">
+	</div>
+
+	<div class="block">
+		<span>Quality</span>
+		<select id="quality">
+			<option value="1">1</option>
+			<option value="0">0</option>
+		</select>
+	</div>
 </div>
 `;
 
@@ -43,10 +79,42 @@ export default class TinySynthHTMLElement extends HTMLElement {
 		});
 		this.root.innerHTML = `<style>${style}</style>${template}`;
 
+		let programs = plugin.audioNode.getProgramList();
+		let selectP = this.root.getElementById("program");
+
+		for (let i = -1; i < programs.length; i++) {
+			let opt = document.createElement("OPTION");
+			opt.textContent = i < 0 ? "Standard Drum Kit" : programs[i].name;
+			opt.value = i;
+			selectP.appendChild(opt);
+		}
+		selectP.addEventListener("change", (e) => {
+			plugin.audioNode.setProgram(e.target.value)
+		});
+
+		let selectQ = this.root.getElementById("quality");
+		selectQ.addEventListener("change", (e) => {
+			plugin.audioNode.setQuality(e.target.value);
+		});
+
+		let rangeV = this.root.getElementById("volume");
+		rangeV.addEventListener("input", (e) => {
+			plugin.audioNode.setVolume(e.target.value);
+		});
+
+		selectP.value = plugin.audioNode.program;
+		selectQ.value = plugin.audioNode.quality;
+		rangeV.value = plugin.audioNode.volume;
+
 		// MANDATORY for the GUI to observe the plugin state
 		this.plugin = plugin;
+		this.plugin.audioNode.gui = this;
 
-
+		this.renderState = function (state) {
+			selectP.value = state.program;
+			selectQ.value = state.quality;
+			rangeV.value = state.volume;
+		}
 	}
 
 	connectedCallback() {
@@ -76,7 +144,6 @@ export default class TinySynthHTMLElement extends HTMLElement {
 	async setKnobs() {
 
 	}
-
 
 	setSwitchListener() {
 

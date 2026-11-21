@@ -1460,6 +1460,8 @@ export class WebAudioTinySynth {
         this.setQuality(opt.quality);
       if(opt.voices!=undefined)
         this.setVoices(opt.voices);
+	  if(opt.internalcontext!=undefined)
+        this.internalcontext=opt.internalcontext;
     }
     this.init();
   }
