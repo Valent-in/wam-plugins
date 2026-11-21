@@ -1299,8 +1299,8 @@ webaudio-switch{
           window.addEventListener("touchcancel", pointerup);
           document.body.addEventListener("touchstart", preventScroll, { passive: false });
           this.redraw();
-          e.preventDefault();
-          e.stopPropagation();
+          if (e.preventDefault) e.preventDefault();
+          if (e.stopPropagation) e.stopPropagation();
           return false;
         }
       }
