@@ -135,11 +135,11 @@ export default class faustClarinetGui extends HTMLElement {
             </webaudio-knob>
         </div>
 
-        <label for="/clarinet/midi/envAttack" class="drag" contenteditable="false">envAttack</label>
+        <label for="/clarinet/midi/envAttack" class="drag" contenteditable="false">Attack</label>
 
-        <label for="/clarinet/otherParams/reedStiffness" class="drag" contenteditable="false">reedStiffness</label>
+        <label for="/clarinet/otherParams/reedStiffness" class="drag" contenteditable="false">Reed</label>
 
-        <label for="/clarinet/otherParams/bellOpening" class="drag" contenteditable="false">bellOpening</label>
+        <label for="/clarinet/otherParams/bellOpening" class="drag" contenteditable="false">Opening</label>
 
         <div class="drag">
             <webaudio-knob id="/clarinet/otherParams/vibratoFreq" src="/./img/knobs/Carbon.png" sprites="100" min="1" max="10"
@@ -165,11 +165,11 @@ export default class faustClarinetGui extends HTMLElement {
             </webaudio-knob>
         </div>
 
-        <label for="/clarinet/otherParams/vibratoFreq" class="drag" contenteditable="false">vibratoFreq</label>
+        <label for="/clarinet/otherParams/vibratoFreq" class="drag" contenteditable="false">VibRate</label>
 
-        <label for="/clarinet/otherParams/vibratoGain" class="drag" contenteditable="false">vibratoGain</label>
+        <label for="/clarinet/otherParams/vibratoGain" class="drag" contenteditable="false">VibDepth</label>
 
-        <label for="/clarinet/otherParams/outGain" class="drag" contenteditable="false">outGain</label>
+        <label for="/clarinet/otherParams/outGain" class="drag" contenteditable="false">Volume</label>
     </div>
 
 </div>`;
@@ -254,9 +254,6 @@ export default class faustClarinetGui extends HTMLElement {
     // check if the shadowroot host has a background image
     let mainDiv = this._root.querySelector("#main");
     mainDiv.style.backgroundImage = "url(" + this.basePath + "/" + imageRelativeURI + ")";
-
-    //console.log("background =" + mainDiv.style.backgroundImage);
-    //this._root.style.backgroundImage = "toto.png";
   }
 
   attributeChangedCallback() {
@@ -298,9 +295,6 @@ export default class faustClarinetGui extends HTMLElement {
  
     this._root.getElementById("/clarinet/otherParams/outGain").value =
       this._plug.audioNode.getParamValue("/clarinet/otherParams/outGain");
-
-    //this._root.getElementById("/smoothDelay/bypass").value =
-    //  1 - this._plug.audioNode.getParamValue("/smoothDelay/bypass");
 
     window.requestAnimationFrame(this.handleAnimationFrame);
   };
@@ -347,11 +341,7 @@ export default class faustClarinetGui extends HTMLElement {
 
   setSliders() {}
 
-  setSwitches() {
-   // this._root
-   //   .getElementById("/smoothDelay/bypass")
-   //   .addEventListener("change", (e) => this._plug.audioNode.setParamValue("/smoothDelay/bypass", 1 - e.target.value));
-  }
+  setSwitches() {}
 
   setInactive() {
     let switches = this._root.querySelectorAll(".switch webaudio-switch");
